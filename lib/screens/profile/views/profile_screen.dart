@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/components/list_tile/divider_list_tile.dart';
 import 'package:shop/components/network_image_with_loader.dart';
 import 'package:shop/constants.dart';
+import 'package:shop/providers/user_provider.dart';
 import 'package:shop/route/screen_export.dart';
 
 import 'components/profile_card.dart';
 import 'components/profile_menu_item_list_tile.dart';
+import 'edit_profile_view.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          ProfileCard(
-            name: "Sepide",
-            email: "theflutterway@gmail.com",
-            imageSrc: "https://i.imgur.com/IXnwbLk.png",
-            // proLableText: "Sliver",
-            // isPro: true, if the user is pro
-            press: () {
-              Navigator.pushNamed(context, userInfoScreenRoute);
-            },
-          ),
+    return Consumer<UserProvider>(
+      builder: (context, userProvider, child) {
+        final user = userProvider.user;
+        return Scaffold(
+          body: ListView(
+            children: [
+              ProfileCard(
+                name: user.fullName,
+                email: user.email,
+                imageSrc: user.avatarUrl ?? "https://i.imgur.com/IXnwbLk.png",
+                // proLableText: "Sliver",
+                // isPro: true, if the user is pro
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const EditProfileView(),
+                    ),
+                  );
+                },
+              ),
           Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: defaultPadding, vertical: defaultPadding * 1.5),
@@ -174,6 +185,8 @@ class ProfileScreen extends StatelessWidget {
           )
         ],
       ),
+    );
+      },
     );
   }
 }

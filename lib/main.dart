@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/admin/providers/product_provider.dart';
-import 'package:shop/admin/providers/user_provider.dart';
+import 'package:shop/providers/user_provider.dart';
+import 'package:shop/providers/order_provider.dart';
 import 'package:shop/admin/routes/admin_routes.dart';
 import 'package:shop/providers/auth_provider.dart';
 import 'package:shop/route/router.dart' as router;
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => OrderProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

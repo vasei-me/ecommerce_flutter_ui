@@ -92,24 +92,30 @@ class SecondaryProductCard extends StatelessWidget {
                   priceAfetDiscount != null
                       ? Row(
                           children: [
-                            Text(
-                              "\$$priceAfetDiscount",
-                              style: const TextStyle(
-                                color: Color(0xFF31B0D8),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12,
+                            Flexible(
+                              child: Text(
+                                "\$$priceAfetDiscount",
+                                style: const TextStyle(
+                                  color: Color(0xFF31B0D8),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             const SizedBox(width: defaultPadding / 4),
-                            Text(
-                              "\$$price",
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .color,
-                                fontSize: 10,
-                                decoration: TextDecoration.lineThrough,
+                            Flexible(
+                              child: Text(
+                                "\$$price",
+                                style: TextStyle(
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .color,
+                                  fontSize: 10,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
