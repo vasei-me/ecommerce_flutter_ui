@@ -1,3 +1,7 @@
+// ❌ DO NOT USE
+// This widget was removed to eliminate paywall screens
+// All usages have been replaced with FeatureNotAvailable
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';

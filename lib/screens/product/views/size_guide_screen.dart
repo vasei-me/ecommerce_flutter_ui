@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop/components/buy_full_ui_kit.dart';
+
+import '../../../components/feature_not_available.dart';
 
 class SizeGuideScreen extends StatefulWidget {
   const SizeGuideScreen({super.key});
@@ -19,6 +20,6 @@ class _SizeGuideScreenState extends State<SizeGuideScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const BuyFullKit(images: ["assets/screens/Size Guide.png"]);
+    return const FeatureNotAvailable();
   }
 }
